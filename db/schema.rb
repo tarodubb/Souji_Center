@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_080241) do
     t.bigint "service_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["service_id"], name: "index_bookings_on_service_id"
