@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand ms-4" href="#">Souji Center</a>
+</nav>
+
+<div class="card m-1 p-1" style="width: 48rem;">
+  <div class="card-body">
+    <h1 class="card-title"><%= @flat.name %></h5>
+    <h4 class="card-subtitle mb-2 text-muted"><%= @flat.address %></h6>
+  </div>
+</div>
+
+
+<div class="card m-1 p-1" style="width: 48rem;">
+  <div class="card-body">
+    <h3>A bit more about this flat...</h3>
+    <p class="card-text"><%= @flat.description %></p>
+  </div>
+</div>
+
+<div class="card m-1 p-1" style="width: 48rem;">
+  <div class="card-body">
+    <h3>Details</h3>
+    <p class="card-text">
+      <i class="fa-solid fa-user-group"></i>
+      <%= @flat.number_of_guests %>
+      <i class="fa-solid fa-dollar-sign"></i>
+      <%= @flat.price_per_night %>
+    </p>
+  </div>
+</div>
