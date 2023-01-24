@@ -76,6 +76,8 @@ group :test do
   gem "webdrivers"
 end
 
+gem "pundit"
+
 # Devise Gem
 
 gem "devise"
