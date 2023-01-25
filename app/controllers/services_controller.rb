@@ -1,9 +1,13 @@
 class ServicesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @services = Service.all
+    @restaurants = policy_scope(Service)
   end
 
   def show
-    @service = Service.find(param[:id])
+    @service = Service.find(params[:id])
+    authorize @service
   end
 end

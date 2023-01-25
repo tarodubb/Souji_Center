@@ -1,13 +1,16 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @service = List.find(params[:service_id])
+    @service = Service.find(params[:service_id])
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @service = Service.find(params[:service_id])
     @booking.service = @service
+    @booking.user = current_user
+    authorize @booking
     @booking.save
     if @booking.save
       redirect_to booking_path(@service)
@@ -20,6 +23,8 @@ class BookingsController < ApplicationController
     @service = Service.find(params[:service_id])
     @booking = Booking.find(params[:id])
     @booking.service = @service
+    @booking.user = current_user
+    authorize @booking
     @booking.destroy
     redirect_to service_path(@service), status: :see_other
   end
