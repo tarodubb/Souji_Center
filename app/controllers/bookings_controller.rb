@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
-    @service = List.find(params[:service_id])
+    @service = Service.find(params[:service_id])
     authorize @booking
   end
 
