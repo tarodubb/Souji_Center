@@ -35,14 +35,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:comment, :list_id, :movie_id)
   end
 end
-``
-# def new
-#   @restaurant = Restaurant.new
-#   authorize @restaurant # Add this line
-# end
-# # [...]
-# def create
-#   @restaurant = Restaurant.new(restaurant_params)
-#   @restaurant.user = current_user
-#   authorize @restaurant # Add this line
-#   # [...]
