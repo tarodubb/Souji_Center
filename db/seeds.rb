@@ -23,7 +23,7 @@ puts "Creating users..."
   )
 
   5.times do
-    temp_service = Service.create(
+    Service.create(
       name: Faker::Company.name,
       price: Faker::Commerce.price,
       description: Faker::Company.type,
@@ -31,7 +31,6 @@ puts "Creating users..."
       user_id: temp_user.id
     )
   end
-  puts temp_user.id
 end
 
 puts "Finished!"
