@@ -1,7 +1,8 @@
 <div class="container mt-4">
 <h1>Book</h1>
+<h3>Service: <%= @service.name %></h3>
+<h3>Price: <i class="fa-solid fa-dollar-sign"></i><%= @service.price %></h3>
 <%= simple_form_for [@service, @booking] do |f| %>
-  <%= f.association :service %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%= f.button :submit %>

@@ -1,0 +1,22 @@
+<div class="contrainer">
+  <div class="d-flex justify-content-center">
+
+    <% @bookings.each do |b| %>
+      <%= link_to booking_path(b) do %>
+        <div class="card m-1 p-1" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title purple"><%= b.service.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= b.service.description %></h6>
+            <p class="card-text">
+              <%= b.created_at %>
+            </p>
+            <p>
+              <i class="fa-solid fa-dollar-sign"></i>
+              <%= b.service.price %>/hour
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
