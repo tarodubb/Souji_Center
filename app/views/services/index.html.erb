@@ -1,6 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand ms-4" href="#">Souji Center</a>
-</nav>
 <h2 class = "ps-4">(<%= @services.count %>) Cleaners avaliable</h2>
 
 <div class="contrainer">
@@ -17,7 +14,9 @@
         <i class="fa-solid fa-dollar-sign"></i>
         <%= service.price %>
         </p>
-      <%= link_to "Select", service_path(service) %>
+      <%= link_to "More info", service_path(service) %>
+        <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+
   </div>
 </div>
 <% end %>
