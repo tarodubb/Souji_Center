@@ -15,7 +15,7 @@ puts "Creating users..."
 cleaning_services = ["Basic House Cleaning", "Deep Cleaning", "Laundry Services", "Sanitization Services", "Ceiling and Wall Cleaning", "Curtain Cleaning", "Carpet Cleaning", "Window Cleaning", "Restroom Cleaning", "Janitorial Services"]
 
 10.times do
-  User.create(
+  temp_user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     password: Faker::Internet.password,
