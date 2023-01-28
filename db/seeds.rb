@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # db/seeds.rb
 puts "Cleaning database..."
-User.destroy_all
+Booking.destroy_all
 Service.destroy_all
+User.destroy_all
 
 puts "Creating users..."
 
