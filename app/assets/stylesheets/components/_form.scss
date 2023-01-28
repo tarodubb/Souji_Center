@@ -1,9 +1,29 @@
 
 form {
-  width: 500px;
-  margin: auto;
+  width: 400px;
 }
 
 .centered {
   text-align: center;
+}
+
+#leftHalf {
+  background-image: asset-url('cleaner.png');
+  background-size: contain;
+  width: 50%;
+  position: absolute;
+  left: 0px;
+  height: 100%;
+}
+
+#rightHalf {
+  background-color: white;
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  color: #434242
+  p {
+    color: #434242
+  }
 }

@@ -19,9 +19,14 @@
   border-radius: 4px;
   background: #8F5BD8;
   transition: background 0.3s ease;
+  &.white {
+    color: #8F5BD8;
+    border: 1px solid #8F5BD8;
+    background-color: white;
+  }
 }
 
 .btn-flat:hover {
-  background:#8F5BD8;
-  color: white;
+  background:white;
+  color: #8F5BD8;
 }
