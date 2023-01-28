@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :bookings
   has_many :bookings_as_cleaner, through: :services, source: :bookings
-  has_many_attached :photos
+  has_one_attached :photo
 end
