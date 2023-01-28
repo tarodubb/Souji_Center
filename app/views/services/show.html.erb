@@ -13,5 +13,8 @@
       <h5>Price: <%= @service.price %><i class="fa-solid fa-dollar-sign"></i></h5>
       </p>
     </div>
+    <%= link_to "Book now", new_service_booking_path(@service), class: "btn btn-flat mt-3" %>
+    <%= link_to "Return", services_path, class: "btn btn-flat mt-3" %>
+
   </div>
 </div>
