@@ -9,7 +9,7 @@
         <%= simple_form_for [@service, @booking] do |f| %>
           <%= f.input :start_date, label: "Select a date" %>
           <%= f.input :start_time %>
-          <%= f.input :end_date, label: "End time" %>
+          <%= f.input :end_time, label: "End time" %>
           <div class="container d-flex justify-content-evenly">
           <%= f.button :submit, 'Book this service', class: 'btn btn-flat mt-3' %>
           <%= link_to "See other options", services_path, class: "btn btn-flat white mt-3" %>
