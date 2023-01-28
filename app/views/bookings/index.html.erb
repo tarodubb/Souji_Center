@@ -1,7 +1,6 @@
 <div class="contrainer">
   <div class="d-flex justify-content-center">
-
-    <% @bookings.each do |b| %>
+    <% @user_bookings.each do |b| %>
       <%= link_to booking_path(b) do %>
         <div class="card m-1 p-1" style="width: 18rem;">
           <div class="card-body">
