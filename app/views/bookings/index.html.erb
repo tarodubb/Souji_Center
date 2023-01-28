@@ -1,6 +1,6 @@
-<div class="contrainer">
-  <div class="d-flex justify-content-center">
-
+<div class="container pt-4 justify-content-center">
+  <h2 class = "pb-2">Your Bookings</h2>
+  <div class="d-flex flex-wrap ">
     <% @bookings.each do |b| %>
       <%= link_to booking_path(b) do %>
         <div class="card m-1 p-1" style="width: 18rem;">
