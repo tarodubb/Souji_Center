@@ -19,6 +19,11 @@
   border-radius: 4px;
   background: #8F5BD8;
   transition: background 0.3s ease;
+  &.white {
+    background: white;
+    color: #8F5BD8;
+    border: 1px solid #8F5BD8;
+  }
 }
 
 .btn-flat:hover {

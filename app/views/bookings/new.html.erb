@@ -4,7 +4,7 @@
 <%= simple_form_for [@service, @booking] do |f| %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
-  <%= f.button :submit, input_html: { class: 'btn btn-flat' } %>
-<% end %>
-<%= link_to "<< Back to all services", services_path, class: "btn btn-ghost purple" %>
+  <%= f.button :submit, { class: 'btn btn-flat mt-3' } %>
+  <%= link_to "See other services", services_path, class: "btn btn-flat white mt-3" %>
 </div>
+<% end %>
