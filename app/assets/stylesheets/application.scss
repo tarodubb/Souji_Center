@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+
+  text-decoration: none;
+  color:#8F5BD8;
+ }
+
+.purple {
+  color: #8F5BD8;
+}
+
+body {
+  background-color: white;
+  font-family: 'Cabin', sans-serif;
+}

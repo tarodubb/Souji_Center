@@ -1,0 +1,23 @@
+.card {
+
+  background-color: #EEEEEE;
+  padding: 50px;
+  width: 500px;
+  margin: 25px auto;
+  border-radius: 15px;
+  border: 1px solid #8F5BD8;
+  &.profile {
+  width: 800px;
+  }
+}
+
+h5, h6, p{
+  color: black;
+}
+
+.card:hover {
+  box-shadow: 0 0 16px rgba(0,0,0,0.1);
+  &.profile:hover {
+    box-shadow: none;
+  }
+}

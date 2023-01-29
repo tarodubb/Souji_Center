@@ -1,25 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand ms-4" href="#">Souji Center</a>
-</nav>
-<h2 class = "ps-4">(<%= @services.count %>) Cleaners avaliable</h2>
 
-<div class="contrainer">
-  <div class="row d-flex justify-content-center">
 
+<div class="container pt-4 justify-content-center">
+  <h2 class = "pb-2">(<%= @services.count %>) Services available</h2>
+  <div class = "d-flex flex-wrap ">
     <% @services.each do |service| %>
+    <%= link_to service_path(service) do %>
       <div class="card m-1 p-1" style="width: 18rem;">
-      <div class="card-body">
-      <h5 class="card-title"><%= service.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= service.description %></h6>
-      <p class="card-text">
-        <i class="fa-solid fa-user-group"></i>
-        <%= service.category %>
-        <i class="fa-solid fa-dollar-sign"></i>
-        <%= service.price %>
-        </p>
-      <%= link_to "Select", service_path(service) %>
-  </div>
-</div>
-<% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= service.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= service.user.first_name %></h6>
+          <p class="card-text">
+            <i class="fa-solid fa-user-group"></i>
+            <i class="fa-solid fa-dollar-sign"></i>
+            <%= service.price %>/hour
+            </p>
+            <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+        </div>
+      </div>
+    <% end %>
+    <% end %>
   </div>
 </div>
