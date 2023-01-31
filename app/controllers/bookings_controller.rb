@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  enum :status, [ :pending, :approved, :rejected]
+
   def index
     @user_bookings = policy_scope(Booking).where(user: current_user)
   end

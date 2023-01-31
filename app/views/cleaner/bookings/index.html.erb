@@ -1,0 +1,7 @@
+
+<% @cleaner_bookings.each do |b|%>
+<p>
+  <%= link_to 'Approve', approve_cleaner_booking_path(b), class: "button-xs success", method: :post %>
+</p>
+<%= b.start_date  %>
+<% end %>
