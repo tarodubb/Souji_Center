@@ -1,18 +1,33 @@
-<div class="container mt-4">
-<h3>Your customers</h3>
-<% @cleaner_bookings.each do |b|%>
-<div class="card cleaner">
- <h5 class="card-title mb-3 purple">Booking ID: <%= b.id %></h5>
-<% if b.user.first_name && b.user.last_name %>
-<p class="card-text mt-3"><%= b.user.first_name b.user.last_name %></p>
-<% else %>
-<p class="card-text">The name is unknown</p>
-<% end %>
-<p class="card-text">Date: <%= b.start_date %></p>
-<p class="card-text">Time: from <%= b.start_time.to_formatted_s(:time) %> till <%= b.end_time.to_formatted_s(:time)  %></p>
-<p>
-  <%= link_to 'Accept', approve_cleaner_booking_path(b), class: "btn btn-flat", method: :post %>
-</p>
-<% end %>
-</div>
+<div class="bookings">
+  <% @cleaner_bookings.each do |booking| %>
+    <div class="booking">
+      <div class='booking-left'>
+        <!-- if you're using cloudinary and activestorage -->
+        <%= cl_image_tag booking.user.photo.key, class: 'avatar-bordered' %>
+        <div class="booking-info">
+          <div class="booking-info-title">
+            <%= booking.user.first_name %>
+          </div>
+          <div class="booking-info-details">
+           <%= booking.start_date %>
+            <%= booking.start_time.strftime('%l:%M %p') %> - <%= booking.end_time.strftime('%l:%M %p') %>
+          </div>
+        </div>
+      </div>
+      <div class="booking-actions">
+        <% if booking.pending? %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-light' %>
+          <% end %>
+        <% else %>
+          <p class='booking-tag'><%= booking.status %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
