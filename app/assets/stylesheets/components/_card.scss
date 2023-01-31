@@ -1,9 +1,10 @@
 .card {
 
   background-color: #EEEEEE;
-  padding: 50px;
-  width: 500px;
-  margin: 25px auto;
+  padding: 24px;
+  width: 400px;
+  height: 272px;
+  margin-bottom: 28px;
   border-radius: 15px;
   border: 1px solid #8F5BD8;
   &.profile {
@@ -20,6 +21,14 @@ h5, h6, p{
   color: black;
 }
 
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
 .card:hover {
   box-shadow: 0 0 16px rgba(0,0,0,0.1);
 }
@@ -30,4 +39,42 @@ h5, h6, p{
 
 .cleaner:hover {
   box-shadow: none;
+}
+
+.cleaner-stats-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cleaner-stats{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEEEEE;
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-title {
+  margin-left: 24px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.service-img{
+  /*fixed*/
+  border-radius: 50%;
+  /*customizable*/
+  width: 64px;
+  height: 64px;
 }
