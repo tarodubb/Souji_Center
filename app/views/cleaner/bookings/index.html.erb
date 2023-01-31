@@ -1,7 +1,16 @@
-
+<div class="container mt-4">
+<h3>Your customers</h3>
 <% @cleaner_bookings.each do |b|%>
-<p>
-  <%= link_to 'Approve', approve_cleaner_booking_path(b), class: "button-xs success", method: :post %>
-</p>
-<%= b.start_date  %>
+<p class="mt-3">Booking ID: <%= b.id %></p>
+<% if b.user.first_name && b.user.last_name %>
+<p><%= b.user.first_name b.user.last_name %></p>
+<% else %>
+<p>The name is unknown</p>
 <% end %>
+<p>Date: <%= b.start_date %></p>
+<p>Time: from <%= b.start_time %> till <%= b.end_time  %></p>
+<p>
+  <%= link_to 'Accept', approve_cleaner_booking_path(b), class: "btn btn-flat", method: :post %>
+</p>
+<% end %>
+</div>
