@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :update]
   namespace :cleaner do
-    resources :bookings, only: :index
+    resources :bookings, only: :index do
+    member do
+      post :approve
+    end
+  end
     # equivalent to => get '/cleaner/bookings', to: '<namespace>/bookings#index'
   end
   # Defines the root path route ("/")

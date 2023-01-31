@@ -1,7 +1,6 @@
-class ServicePolicy < ApplicationPolicy
+class Cleaner::BookingPolicy < ApplicationPolicy
   class Scope < Scope
-
-    # NOTE: Be explicit about which records you allow access to!
+      # NOTE: Be explicit about which records you allow access to!
     def resolve
       scope.all
     end

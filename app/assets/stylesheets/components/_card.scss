@@ -9,7 +9,12 @@
   &.profile {
   width: 800px;
   }
+  &.cleaner {
+    background-color: #f6f6f6;
+    font-size: 20px;
+  }
 }
+
 
 h5, h6, p{
   color: black;
@@ -17,7 +22,12 @@ h5, h6, p{
 
 .card:hover {
   box-shadow: 0 0 16px rgba(0,0,0,0.1);
-  &.profile:hover {
-    box-shadow: none;
-  }
+}
+
+.profile:hover {
+  box-shadow: none;
+}
+
+.cleaner:hover {
+  box-shadow: none;
 }
