@@ -1,7 +1,7 @@
 <div class="container mt-4">
 <h3>Your customers</h3>
 <% @cleaner_bookings.each do |b|%>
-<div class="card">
+<div class="card cleaner">
  <h5 class="card-title mb-3 purple">Booking ID: <%= b.id %></h5>
 <% if b.user.first_name && b.user.last_name %>
 <p class="card-text mt-3"><%= b.user.first_name b.user.last_name %></p>
