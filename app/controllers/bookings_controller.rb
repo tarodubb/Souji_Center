@@ -23,6 +23,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
   def destroy
     @service = Service.find(params[:service_id])
     @booking = Booking.find(params[:id])
