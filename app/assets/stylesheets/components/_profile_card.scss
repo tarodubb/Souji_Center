@@ -1,0 +1,40 @@
+.profile-card {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-top: 4rem;
+}
+.card-contents {
+  background: #EEEEEE;
+  width: 70%;
+  box-shadow: 0px 3px 3px rgb(135, 134, 134);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.user-info {
+  text-align: center;
+  padding: 80px 10px 0 10px;
+}
+.profile-img {
+  background: #EEEEEE;
+  position: absolute;
+  top: 12px;
+  background: none;
+  border-radius: 50%;
+  box-shadow: 0px 3px 3px rgb(135, 134, 134);
+}
+.btn-connect {
+  color: white;
+  padding: 10px 8px;
+  border-radius: 10%;
+  background: #8F5AD8;
+}
+.btn-message {
+  color: white;
+  padding: 10px 8px;
+  border-radius: 10%;
+  background: #090114;
+}
