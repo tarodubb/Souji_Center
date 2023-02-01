@@ -15,6 +15,6 @@ class Cleaner::BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :start_time, :end_time, :service_id, :user_id, :status)
+    params.require(:booking).permit(:start_date, :start_time, :end_time, :status)
   end
 end
