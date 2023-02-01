@@ -10,7 +10,7 @@ class Cleaner::BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to cleaner_bookings_path
     else
-      redirect_to root_path
+      render :index, status: :unprocessable_entity
     end
   end
 

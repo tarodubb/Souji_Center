@@ -21,7 +21,7 @@
     <%= f.input :phone_number,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "number" }%>
+                input_html: { autocomplete: "phone number" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -33,9 +33,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file,
-                required: true,
-                input_html: { autocomplete: "photo" }%>
+    <%= f.input :photo, as: :file %>
   </div>
 
   <div class="form-actions">
