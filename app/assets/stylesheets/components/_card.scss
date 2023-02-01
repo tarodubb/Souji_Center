@@ -4,7 +4,7 @@
   padding: 24px;
   width: 400px;
   height: 272px;
-  margin-bottom: 28px;
+  margin: 28px;
   border-radius: 15px;
   border: 1px solid #8F5BD8;
   &.profile {
@@ -19,6 +19,8 @@
 
 h5, h6, p{
   color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0;
 }
 
 h5 {
@@ -44,7 +46,6 @@ h6 {
 .cleaner-stats-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .cleaner-stats{
@@ -77,4 +78,14 @@ h6 {
   /*customizable*/
   width: 64px;
   height: 64px;
+}
+
+.bl {
+  border-left: 1px solid;
+  padding-left: 24px;
+}
+
+.br {
+  border-right: 1px solid;
+  padding-right: 24px;
 }
