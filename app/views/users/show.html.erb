@@ -6,7 +6,7 @@
   <% end %>
   <div class="card-contents">
     <div class="card-header">
-        <div class="btn-connect">Connect</div>
+        <div class="btn-connect">Save</div>
         <div class="btn-message">Message</div>
     </div>
     <div class="user-info">
@@ -14,7 +14,18 @@
       <p><%= @user.email %></p>
       <p><%= @user.phone_number %></p>
     </div>
-  </div>
-
 
 </div>
+    <% if @user.services.first %>
+      <h2 class="cleaner-banner">Cleaning Services</h2>
+    <% end %>
+  <div class="cleaner-services">
+      <% @user.services.each do|service|%>
+        <div class="service-card">
+          <div class="card-body">
+            <h4 class="card-title"><strong><%= service.name %></strong></h4>
+            <p>¥<%= service.price %>/hour</p>
+            <p><%= service.description %></p>
+          </div>
+        </div>
+    <% end %>
