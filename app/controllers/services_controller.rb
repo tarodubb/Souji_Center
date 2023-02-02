@@ -4,6 +4,11 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all
     @services = policy_scope(Service)
+    if params[:query].present?
+      @services = Service.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @services = Service.all
+    end
   end
 
   def new
