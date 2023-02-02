@@ -11,6 +11,25 @@
   width: 100px;
 }
 
+.navbar-purple {
+  justify-content: space-between;
+  background: #8F5BD8;
+}
+
+.navbar-purple .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-purple .navbar-brand img {
+  width: 100px;
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
+}
+
+a.nav-link-white{
+  color: white;
+}
+
 .navbar-nav {
   display: flex;
   align-items: center;
