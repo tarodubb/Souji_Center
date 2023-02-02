@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>SoujiCenter</title>
@@ -7,14 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "/assets/application.js", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
-    <%= render "shared/navbar" %>
+    <% if current_page?('http://localhost:3000/') %>
+      <%= render "shared/navbar", color: "navbar-lewagon", link_color: "" %>
+    <% else %>
+      <%= render "shared/navbar", color: "navbar-purple", link_color: "nav-link-white" %>
+    <% end %>
     <%= render "shared/flashes" %>
     <%= yield %>
     <%= render "shared/footer" %>
