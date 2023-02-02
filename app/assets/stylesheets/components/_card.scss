@@ -1,9 +1,10 @@
 .card {
 
   background-color: #EEEEEE;
-  padding: 50px;
-  width: 500px;
-  margin: 25px auto;
+  padding: 24px;
+  width: 400px;
+  height: 272px;
+  margin: 28px;
   border-radius: 15px;
   border: 1px solid #8F5BD8;
   &.profile {
@@ -18,6 +19,16 @@
 
 h5, h6, p{
   color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
 }
 
 .card:hover {
@@ -30,4 +41,51 @@ h5, h6, p{
 
 .cleaner:hover {
   box-shadow: none;
+}
+
+.cleaner-stats-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.cleaner-stats{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EEEEEE;
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-title {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.service-img{
+  /*fixed*/
+  border-radius: 50%;
+  /*customizable*/
+  width: 64px;
+  height: 64px;
+}
+
+.bl {
+  border-left: 1px solid;
+  padding-left: 24px;
+}
+
+.br {
+  border-right: 1px solid;
+  padding-right: 24px;
 }

@@ -4,15 +4,17 @@ class Cleaner::BookingsController < ApplicationController
     @cleaner_bookings = policy_scope(Booking).where(service: @service)
   end
 
-  def approve
+  def update
     @booking = Booking.find(params[:id])
-    @booking.update(status: 1)
-    if @booking.status == 1
-      flash[:success] = "Booking successfully approved"
-    redirect_to booking_path(@booking)
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to cleaner_bookings_path
     else
-      flash[:error] = "Booking not approved"
-    redirect_to bookings_path
+      render :index, status: :unprocessable_entity
     end
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :start_time, :end_time, :status)
   end
 end
