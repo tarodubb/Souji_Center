@@ -1,7 +1,9 @@
 
 
-<div class="container justify-content-center">
-  <h2 class = "pb-2">(<%= @services.count %>) Services available</h2>
+<div class="container d-flex flex-column justify-content-center">
+<div class="service-count mt-3">
+  <h2 class = "m-auto">(<%= @services.count %>) Services available</h2>
+</div>
   <div class = "cards-wrapper d-flex flex-wrap justify-content-center">
     <% @services.each do |service| %>
       <%= link_to service_path(service) do %>
