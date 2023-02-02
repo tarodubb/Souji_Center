@@ -29,3 +29,12 @@
 a.nav-link-white{
   color: white;
 }
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-img {
+  border-radius: 50%;
+}
