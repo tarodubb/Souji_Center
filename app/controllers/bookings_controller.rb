@@ -28,6 +28,17 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @service = @booking.service
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to cleaner_bookings_path
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @service = Service.find(params[:service_id])
     @booking = Booking.find(params[:id])

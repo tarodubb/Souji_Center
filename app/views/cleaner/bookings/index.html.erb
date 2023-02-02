@@ -3,19 +3,23 @@
     <div class="bookings">
       <%= cl_image_tag booking.user.photo.key %>
       <div class="booking-infos">
-        <h2> <%= booking.user.first_name %></h2>
+        <h2><%= booking.user.first_name %></h2>
         <p> <%= booking.start_date %></p>
         <p><%= booking.start_time.strftime('%l:%M %p') %> - <%= booking.end_time.strftime('%l:%M %p') %></p>
       </div>
       <div class="booking-actions">
             <% if booking.pending? %>
               <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: "accepted" } %>
-                <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% if policy(Booking).update? %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'approved' } %>
+                  <%= f.submit 'Accept', method: :patch, class: 'btn btn-info' %>
+                <% end %>
               <% end %>
               <%= simple_form_for booking do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: "rejected" } %>
-                <%= f.submit 'Reject', class: 'btn btn-light' %>
+                <% if policy(Booking).update? %>
+                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected' } %>
+                  <%= f.submit 'Reject', method: :patch, class: 'btn btn-light' %>
+                <% end %>
               <% end %>
             <% else %>
               <p class='booking-tag'><%= booking.status %></p>
