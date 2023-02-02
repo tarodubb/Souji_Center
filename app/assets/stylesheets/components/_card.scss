@@ -1,10 +1,8 @@
 .card {
-
   background-color: #EEEEEE;
-  padding: 24px;
   width: 400px;
-  height: 272px;
-  margin: 28px;
+  height: 232px;
+  padding: 12px;
   border-radius: 15px;
   border: 1px solid #8F5BD8;
   &.profile {
@@ -14,6 +12,8 @@
     background-color: #f6f6f6;
     font-size: 20px;
   }
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -88,4 +88,27 @@ h6 {
 .br {
   border-right: 1px solid;
   padding-right: 24px;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  grid-gap: 16px;
+  align-items: center;
+}
+
+.cards-wrapper{
+  width: 50%;
+  padding: 16px;
+}
+
+.main-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.service-count{
+  padding-bottom: 16px;
 }
