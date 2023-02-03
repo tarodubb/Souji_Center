@@ -2,10 +2,13 @@
   color: #ffffff;
   margin-top: 10px;
   border: 1px solid #ffffff;
-  padding: 8px 24px;
+  padding: 10px 30px;
   border-radius: 50px;
   font-weight: lighter;
   margin-left: 40px;
+  &.no-m {
+    margin-left: 10px;
+  }
 }
 
 .btn-ghost:hover {
