@@ -1,7 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,7 +69,9 @@
                 </div>
               </div>
               <div class="button-wrapper">
-                <%= link_to "Reviews", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Details
+                </button>
                 <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
               </div>
             </div>
