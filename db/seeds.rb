@@ -47,6 +47,7 @@ prices = ["3000", "3200", "3500", "3700", "3900", "4000", "4200", "4500", "4700"
     Service.create(
       name: services_names.sample,
       price: prices.sample,
+      address: ["2-15-1 Dogenzaka, Shibuya ku, 150-0043", "2-21-4 Kanda Jimbocho, Chiyoda-ku, 101-0051", "1-28-11 Ginza, Chuo-ku, 104-0061", "2-7-8 Takanawa, Minato-ku, 108-0074", "4-8-21 Kita-Shinjuku, Shinjuku-ku, 169-0074", "4-1-7 Taito, Taito-ku, 110-0016", "1-2-11 Tachibana, Sumida-ku, 131-0043", "4-19-17 Kitasuna, Koto-ku, 136-0073", "2-4-22 Hatanodai, Shinagawa-ku, 142-0064", "2-8-1 Mita, Meguro-ku, 153-0062", " 2-1-6 Kamata, Ota-ku, 144-0052", "2-4-5 Shimouma, Setagaya-ku, 154-0002", "3-33-3 Nakano, Nakano-ku, 164-0001", "4-20-15 Ogikubo, Suginami-ku, 167-0051", "2-64-13 Ikebukuro, Toshima-ku, 171-0014", "2-16-15 Oji, Kita-ku, 114-0002", "6-21 Arakawa, Arakawa-ku, 116-0002", "21-10 Saiwaicho, Itabashi-ku, 173-0034", "2-40-4 Fujimidai, Nerima-ku, 177-0034", "1-17-23 Nishiiko, Adachi-ku, 121-0824"].sample,
       description: "This is where the user writes their description",
       user_id: temp_user.id
     )
