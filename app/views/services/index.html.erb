@@ -40,7 +40,7 @@
                   <i class="fa-solid fa-yen-sign"></i> <h6><%= service.price %>/hour</h6>
                 </div>
               </div>
-              <h6 class="card-title"><%= service.name %></h6>
+              <h6 class="card-title"><%= service.user.first_name%> <%=service.user.last_name %></h6>
               <div class="cleaner-stats">
                 <div class="cleaner-stats-item br">
                     <h6>Ratings</h6>
@@ -65,14 +65,24 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.name %>  <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour</h1>
+                  <div class="title-wrapper">
+                    <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.name %></h1>
+                    <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour
+                  </div>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex justify-content-around">
+                <div class="modal-body">
                   <div class="cleaner-wrapper" >
-                    <div class="full-name">
+                      <div class="pic-and-name d-flex align-items-center">
+                      <% if service.user.photo.key %>
+                        <%= cl_image_tag service.user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>64, :width=>64, :crop=>"thumb"%>
+                      <% else %>
+                        <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                      <% end %>
+                    <div class="full-name ms-3">
                       <%= service.user.first_name%> <%=service.user.last_name %>
                     </div>
+                      </div>
                     <div class="cleaner-stats">
                       <div class="cleaner-stats-item">
                           <h6>Ratings</h6>
@@ -94,9 +104,10 @@
                     <h6><i class="fa-solid fa-phone"></i> <%= service.user.phone_number%></h6>
                     <h6><%= service.user.address%></h6>
                   </div>
+
                   <div class="service-wrapper">
                     <div class="service-header d-flex">
-
+                    Reviews
                     </div>
                     <%= service.description %>
                   </div>
