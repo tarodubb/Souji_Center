@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-6 left-half service">
+    <div class="col-6">
+    <div class="left-half service mt-5"></div>
     </div>
     <div class="col-6 mt-5 right-half">
       <div class="container mt-5" id="center">
@@ -9,7 +10,6 @@
           <%= f.input :name, label: "Name of the Service" %>
           <%= f.input :description, label: "Description" %>
           <%= f.input :price, label: "Hourly rate" %>
-
           <div class="container d-flex justify-content-evenly">
           <%= f.button :submit, 'Post this service', class: 'btn btn-flat mt-3' %>
           <%= link_to "Back to home", root_path, class: "btn btn-flat white mt-3" %>
@@ -19,13 +19,3 @@
     </div>
   </div>
 </div>
-
- <%# create_table "services", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.text "description"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_services_on_user_id"
-  end %>
