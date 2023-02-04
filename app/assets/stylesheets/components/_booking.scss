@@ -1,5 +1,6 @@
-.bookings {
-  overflow: hidden;
+.booking {
+  width: 500px;
+  margin: 30px;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -8,19 +9,21 @@
   justify-content: center;
 }
 
-.bookings img {
+.booking img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.bookings h2 {
+.booking h2 {
+  color:black;
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.bookings p {
+.booking p {
+  color:black;
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -28,7 +31,7 @@
   margin-top: 8px;
 }
 
-.bookings .booking-infos {
+.booking .booking-infos {
   padding: 16px;
 }
 

@@ -1,23 +1,18 @@
-<div class="container pt-4 justify-content-center">
-  <h2 class = "pb-2">Your Bookings</h2>
-  <div class="d-flex flex-wrap ">
-    <% @user_bookings.each do |b| %>
-      <%= link_to booking_path(b) do %>
-        <div class="card m-1 p-1" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title purple"><%= b.service.name %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= b.service.description %></h6>
-            <h6 class="card-subtitle mb-2 text-muted"><%= b.status %></h6>
-            <p class="card-text">
-              <%= b.created_at %>
-            </p>
-            <p>
-              <i class="fa-solid fa-dollar-sign"></i>
-              <%= b.service.price %>/hour
-            </p>
-          </div>
+
+<div class="container mt-4">
+<h1 class="centered">My bookings</h1>
+  <% @user_bookings.each do |booking| %>
+    <div class="card-booking">
+      <%= cl_image_tag booking.service.user.photo.key %>
+      <div class="card-booking-infos">
+        <h2><%= booking.service.user.first_name %></h2>
+        <p><em>"<%= booking.service.description %>"</em></p>
+        <p><strong>Date: </strong><%= booking.start_date %></p>
+        <p><strong>Time: </strong><%= booking.start_time.strftime('%l:%M %p') %> - <%= booking.end_time.strftime('%l:%M %p') %></p>
+        <p><strong>Price: ¥</strong><%= booking.service.price %>/hour</p>
+        <p><strong>Status: </strong><%= booking.status %></p>
         </div>
-      <% end %>
-    <% end %>
-  </div>
+      </div>
+  <% end %>
 </div>
+</em>

@@ -1,9 +1,29 @@
 <div class="banner home" style="background-image: asset-url('banner.png');">
   <div class="container">
     <h1>White Glove<br>Cleaning Services</h1>
-    <%= image_tag "glove.png", :class => "avatar-large mt-3" %>
-    <p>Always on Time Trusted and Safe</p>
-    <p>Make your life easier</p>
-    <a class="btn btn-ghost"" href="<%= services_path %>">Our services</a>
+    <p>Always on time, trusted and safe</p>
+    <a class="btn btn-ghost mt-3"" href="<%= services_path %>">Our services</a>
+    <a class="btn btn-ghost mt-3 no-m"" href="<%= new_service_path %>">Become a cleaner</a>
+  </div>
+</div>
+
+<div class="how-it-works p-4 d-flex justify-content-center flex-column align-items-center">
+  <h3 class="mb-5">How it Works</h2>
+  <div class="steps-wrapper d-flex">
+      <div class="step d-flex d-flex justify-content-center flex-column align-items-center" width = "200">
+      <i class="fa-sharp fa-solid fa-map-location-dot fa-3x mb-4"></i>
+      <h5>Enter your postcode</h3>
+      <p>Enter your postcode to services available in your area</p>
+      </div>
+      <div class="step d-flex justify-content-center flex-column align-items-center">
+      <i class="fa-sharp fa-solid fa-broom fa-3x mb-4"></i>
+      <h5>Choose a service</h3>
+      <p>Select the service that meets your needs</p>
+      </div>
+      <div class="step d-flex justify-content-center flex-column align-items-center">
+      <i class="fa-sharp fa-solid fa-paper-plane fa-3x mb-4"></i>
+      <h5>Send a request</h3>
+      <p> Select the preferred date & time and send a request</p>
+      </div>
   </div>
 </div>
