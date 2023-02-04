@@ -18,6 +18,11 @@
           <li class="nav-item">
             <%= link_to "Bookings", bookings_path, class: link_color + " nav-link" %>
           </li>
+          <% if current_user.services.first %>
+            <li class="nav-item">
+            <%= link_to "New Service", new_service_path, class: link_color + " nav-link" %>
+          </li>
+          <% end %>
           <li class="nav-item dropdown">
             <% if current_user.photo.key %>
               <%= cl_image_tag current_user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>50, :width=>50, :crop=>"thumb"%>
