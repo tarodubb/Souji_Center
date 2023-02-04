@@ -40,13 +40,13 @@
                   <i class="fa-solid fa-yen-sign"></i> <h6><%= service.price %>/hour</h6>
                 </div>
               </div>
-              <h6 class="card-title"><%= service.name %></h6>
+              <h6 class="card-title"><%= service.user.first_name%> <%=service.user.last_name %></h6>
               <div class="cleaner-stats">
                 <div class="cleaner-stats-item br">
                     <h6>Ratings</h6>
                     <div class="review-wrapper d-flex">
                       <i class="fa-solid fa-star"></i>
-                      <h6> 5</h6>
+                      <h6> 5/5</h6>
                     </div>
                 </div>
                 <div class="cleaner-stats-item">
@@ -65,20 +65,30 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.name %>  <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour</h1>
+                  <div class="title-wrapper">
+                    <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.name %></h1>
+                    <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour
+                  </div>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex justify-content-around">
+                <div class="modal-body">
                   <div class="cleaner-wrapper" >
-                    <div class="full-name">
+                      <div class="pic-and-name d-flex align-items-center">
+                      <% if service.user.photo.key %>
+                        <%= cl_image_tag service.user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>64, :width=>64, :crop=>"thumb"%>
+                      <% else %>
+                        <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                      <% end %>
+                    <div class="full-name ms-3">
                       <%= service.user.first_name%> <%=service.user.last_name %>
                     </div>
+                      </div>
                     <div class="cleaner-stats">
                       <div class="cleaner-stats-item">
                           <h6>Ratings</h6>
                           <div class="review-wrapper d-flex">
                             <i class="fa-solid fa-star"></i>
-                            <h6> 5</h6>
+                            <h6> 5/5</h6>
                           </div>
                       </div>
                       <div class="cleaner-stats-item">
@@ -94,11 +104,14 @@
                     <h6><i class="fa-solid fa-phone"></i> <%= service.user.phone_number%></h6>
                     <h6><%= service.user.address%></h6>
                   </div>
-                  <div class="service-wrapper">
-                    <div class="service-header d-flex">
 
+                  <div class="service-wrapper">
+                    <div class="service-header"> Reviews: </div>
+                    <div class="review">
+                      <div class="name-rating d-flex">
+                          Max <i class="fa-solid fa-star"></i> 5/5
+                      </div>
                     </div>
-                    <%= service.description %>
                   </div>
                 </div>
                 <div class="modal-footer">
