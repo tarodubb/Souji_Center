@@ -1,3 +1,6 @@
+
+require 'open-uri'
+require 'JSON'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -25,8 +28,10 @@ services_names = ["Vacation Rental Cleaning", "Residential Cleaning", "Express C
 
 prices = ["3000", "3200", "3500", "3700", "3900", "4000", "4200", "4500", "4700", "4900", "5000", "5200", "5500", "5700", "5900", "6000", "6200", "6500", "6700", "6900"]
 
-20.times do
-  temp_user = User.create(
+20.times do |i|
+  p i
+  img = URI.open("https://res.cloudinary.com/dfzu3kr1a/image/upload/v1675478845/souji_center/profile_images/#{i+1}.jpg")
+  temp_user = User.new(
     first_name: first_names.sample,
     last_name: last_names.sample,
     password: Faker::Internet.password,
@@ -34,6 +39,8 @@ prices = ["3000", "3200", "3500", "3700", "3900", "4000", "4200", "4500", "4700"
     phone_number: phone_numbers.sample,
     email: Faker::Internet.email
   )
+  temp_user.photo.attach(io: img, filename: "avatar.png")
+  temp_user.save
 
   temp_rand = rand(1..5)
   temp_rand.times do
