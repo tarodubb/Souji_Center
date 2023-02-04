@@ -1,7 +1,3 @@
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -14,7 +10,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -44,7 +39,7 @@
           <%# <%= link_to service_path(service) do %>
             <div class="card">
               <div class="card-header">
-                <%= image_tag "photo.jpg", class:"service-img"%>
+                <%= image_tag "snoopy.png", class:"service-img"%>
                 <h5><%= service.user.first_name %></h6>
                 <div class="price-container d-flex">
                   <i class="fa-solid fa-yen-sign"></i> <h6><%= service.price %>/hour</h6>
