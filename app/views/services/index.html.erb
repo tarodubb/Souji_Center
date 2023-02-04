@@ -5,7 +5,7 @@
     <div class="service-count mt-3">
       <h2 class = "m-auto">(<%= @services.count %>) Services available</h2>
     </div>
-    <div class="service-filter">
+    <div class="service-filter mb-4">
       <%= form_with url: services_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
         params[:query],
@@ -31,7 +31,7 @@
             <%# <%= link_to service_path(service) do %>
               <div class="card-header">
                 <% if service.user.photo.key %>
-                  <%= cl_image_tag service.user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>64, :width=>64, :crop=>"thumb"%>
+                  <%= cl_image_tag service.user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>72, :width=>72, :crop=>"thumb"%>
                 <% else %>
                   <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
