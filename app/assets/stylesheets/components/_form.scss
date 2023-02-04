@@ -16,8 +16,9 @@ form {
     background-image: asset-url('supplies.jpg');
   }
   background-size: contain;
-  width: 50%;
-  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
   left: 0px;
   height: 100%;
 }
@@ -25,7 +26,6 @@ form {
 .right-half {
   background-color: white;
   width: 50%;
-  position: absolute;
   right: 0px;
   height: 100%;
   color: #434242

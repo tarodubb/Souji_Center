@@ -3,6 +3,12 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longtitude
+      }
+    end
     @services = policy_scope(Service)
     if params[:query].present?
       @services = Service.where("name ILIKE ?", "%#{params[:query]}%")
