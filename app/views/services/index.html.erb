@@ -50,25 +50,24 @@
             <%# <% end %>
           </div>
           <div class="modal fade" id="myModal_<%=service.id%>" tabindex="-1" aria-labelledby="myModal_<%=service.id%>Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.user.first_name %></h1>
+                  <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.name %>  <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body d-flex">
-                  <div class="cleaner-wrapper">
+                <div class="modal-body d-flex justify-content-around">
+                  <div class="cleaner-wrapper" >
                     <div class="full-name">
                       <%= service.user.first_name%> <%=service.user.last_name %>
                     </div>
-                    <%= service.user.address%>
-                    <%= service.user.phone_number%>
-                    <%= service.user.address%>
+                    <h6>About me: <%= service.description %></h6>
+                    <h6><i class="fa-solid fa-phone"></i> <%= service.user.phone_number%></h6>
+                    <h6><%= service.user.address%></h6>
                   </div>
                   <div class="service-wrapper">
                     <div class="service-header d-flex">
-                      <%= service.name %>
-                      <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour
+
                     </div>
                     <%= service.description %>
                   </div>
