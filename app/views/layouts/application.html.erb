@@ -14,7 +14,7 @@
     <%= javascript_include_tag "application.js", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <% if current_page?('http://localhost:3000/') %>
+    <% if current_page?('http://localhost:3000/' || 'https://souji-center.herokuapp.com/') %>
       <%= render "shared/navbar", color: "navbar-lewagon", link_color: "" %>
     <% else %>
       <%= render "shared/navbar", color: "navbar-purple", link_color: "nav-link-white" %>
