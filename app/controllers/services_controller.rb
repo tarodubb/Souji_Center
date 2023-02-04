@@ -5,23 +5,15 @@ class ServicesController < ApplicationController
     @services = Service.all
     @services = policy_scope(Service)
     if params[:query].present?
-      sql_query = "name ILIKE :query
-                  OR users.address ILIKE :query"
-      @services = Service.joins(:user).where(sql_query, query: "%#{params[:query]}%")
-      @markers = @services.geocoded.map do |service|
-        {
-          lat: service.latitude,
-          lng: service.longitude
-        }
-      end
+      @services = Service.joins(:user).where("name ilike ? OR services.address ilike ?", "%#{params[:query]}%", "%#{params[:query]}%")
     else
       @services = Service.all
-      @markers = @services.geocoded.map do |service|
-        {
-          lat: service.latitude,
-          lng: service.longitude
-        }
-      end
+    end
+    @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude
+      }
     end
   end
 
