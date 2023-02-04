@@ -11,7 +11,9 @@ class ServicesController < ApplicationController
     end
     @services = policy_scope(Service)
     if params[:query].present?
-      @services = Service.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "name ILIKE :query
+                  OR users.address ILIKE :query"
+      @services = Service.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
       @services = Service.all
     end
