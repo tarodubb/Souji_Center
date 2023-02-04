@@ -1,19 +1,3 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="main-container">
 
@@ -36,10 +20,14 @@
     <div class = "cards-wrapper">
       <div class="cards">
         <% @services.each do |service| %>
-          <%# <%= link_to service_path(service) do %>
-            <div class="card">
+          <div class="card" data-bs-toggle="modal" data-bs-target="#myModal_<%=service.id%>">
+            <%# <%= link_to service_path(service) do %>
               <div class="card-header">
-                <%= image_tag "snoopy.png", class:"service-img"%>
+                <% if service.user.photo.key %>
+                  <%= cl_image_tag service.user.photo.key, class: "dropdown-toggle navbar-img", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :gravity=>"face", :height=>64, :width=>64, :crop=>"thumb"%>
+                <% else %>
+                  <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
                 <h5><%= service.user.first_name %></h6>
                 <div class="price-container d-flex">
                   <i class="fa-solid fa-yen-sign"></i> <h6><%= service.price %>/hour</h6>
@@ -63,14 +51,56 @@
                   <h6>1 - 3 years</h6>
                 </div>
               </div>
-              <div class="button-wrapper">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Details
-                </button>
+            <%# <% end %>
+          </div>
+          <div class="modal fade" id="myModal_<%=service.id%>" tabindex="-1" aria-labelledby="myModal_<%=service.id%>" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 px-3" id="myModal_<%=service.id%>">
+                    <%= service.name %>
+                  </h1>
+                  <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex" height = "200">
+                  <div class="cleaner-wrapper p-3">
+                    <div class="full-name">
+                      <%= service.user.first_name%> <%=service.user.last_name %>
+                    </div>
+                    <div class="cleaner-stats">
+                      <div class="cleaner-stats-item">
+                          <h6>Ratings</h6>
+                          <div class="review-wrapper d-flex">
+                            <i class="fa-solid fa-star"></i>
+                            <h6> 5</h6>
+                          </div>
+                      </div>
+                      <div class="cleaner-stats-item">
+                        <h6>Cleanings</h6>
+                        <h6>100</h6>
+                      </div>
+                      <div class="cleaner-stats-item">
+                        <h6>Experience</h6>
+                        <h6>1 - 3 years</h6>
+                      </div>
+                    </div>
+
+                    <%= service.user.phone_number%>
+                    <%= service.user.address%>
+                  </div>
+                  <div class="service-wrapper p-3">
+                    <%= service.description %>
+                  </div>
+                </div>
+                <div class="modal-footer">
                 <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
-          <%# <% end %>
+        </div>
+
         <% end %>
       </div>
     </div>
