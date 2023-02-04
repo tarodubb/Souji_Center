@@ -1,19 +1,3 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="main-container">
 
@@ -36,8 +20,8 @@
     <div class = "cards-wrapper">
       <div class="cards">
         <% @services.each do |service| %>
-          <%# <%= link_to service_path(service) do %>
-            <div class="card">
+          <div class="card" data-bs-toggle="modal" data-bs-target="#myModal_<%=service.id%>">
+            <%# <%= link_to service_path(service) do %>
               <div class="card-header">
                 <%= image_tag "snoopy.png", class:"service-img"%>
                 <h5><%= service.user.first_name %></h6>
@@ -46,7 +30,7 @@
                 </div>
               </div>
               <h6 class="card-title"><%= service.name %></h6>
-              <div class="cleaner-stats">
+              <div class="cleaner-stats p-">
                 <div class="cleaner-stats-item br">
                     <h6>Ratings</h6>
                     <div class="review-wrapper d-flex">
@@ -63,14 +47,40 @@
                   <h6>1 - 3 years</h6>
                 </div>
               </div>
-              <div class="button-wrapper">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Details
-                </button>
+            <%# <% end %>
+          </div>
+          <div class="modal fade" id="myModal_<%=service.id%>" tabindex="-1" aria-labelledby="myModal_<%=service.id%>Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="myModal_<%=service.id%>Label"><%= service.user.first_name %></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex">
+                  <div class="cleaner-wrapper">
+                    <div class="full-name">
+                      <%= service.user.first_name%> <%=service.user.last_name %>
+                    </div>
+                    <%= service.user.address%>
+                    <%= service.user.phone_number%>
+                    <%= service.user.address%>
+                  </div>
+                  <div class="service-wrapper">
+                    <div class="service-header d-flex">
+                      <%= service.name %>
+                      <i class="fa-solid fa-yen-sign"></i> <%= service.price %>/hour
+                    </div>
+                    <%= service.description %>
+                  </div>
+                </div>
+                <div class="modal-footer">
                 <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
-          <%# <% end %>
+        </div>
+
         <% end %>
       </div>
     </div>
