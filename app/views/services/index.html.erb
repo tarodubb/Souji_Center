@@ -1,4 +1,19 @@
-
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="main-container">
 
@@ -24,10 +39,10 @@
           <%# <%= link_to service_path(service) do %>
             <div class="card">
               <div class="card-header">
-                <%= image_tag "photo.jpg", class:"service-img"%>
+                <%= image_tag "snoopy.png", class:"service-img"%>
                 <h5><%= service.user.first_name %></h6>
                 <div class="price-container d-flex">
-                  <i class="fa-solid fa-dollar-sign"></i> <h6><%= service.price %>/hour</h6>
+                  <i class="fa-solid fa-yen-sign"></i> <h6><%= service.price %>/hour</h6>
                 </div>
               </div>
               <h6 class="card-title"><%= service.name %></h6>
@@ -49,7 +64,9 @@
                 </div>
               </div>
               <div class="button-wrapper">
-                <%= link_to "Reviews", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Details
+                </button>
                 <%= link_to "Book now", new_service_booking_path(service), class: "btn btn-flat mt-3" %>
               </div>
             </div>
