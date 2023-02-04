@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
     @markers = @services.geocoded.map do |service|
       {
         lat: service.latitude,
-        lng: service.longtitude
+        lng: service.longitude
       }
     end
     @services = policy_scope(Service)
